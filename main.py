@@ -241,7 +241,7 @@ with st.sidebar:
     metric = st.selectbox("지표 선택", ["평균기온(℃)", "최저기온(℃)", "최고기온(℃)"])
 
 # NOTE: default_path는 여러분 프로젝트의 기본 탑재 CSV 경로로 맞추세요.
-DEFAULT_DATA_PATH = "data/base_.csv"
+DEFAULT_DATA_PATH = "data/base_seoul_temp.csv"
 
 df = load_temperature_csv(uploaded_file=uploaded, default_path=DEFAULT_DATA_PATH)
 df = safe_metric_bounds_check(df)
