@@ -110,7 +110,7 @@ def build_year_overlay(df: pd.DataFrame, metric: str, year: int) -> pd.DataFrame
 # -------------------------
 # CSAT dates file
 # -------------------------
-def load_csat_dates(path: str = "csat_dates.csv") -> pd.DataFrame:
+def load_csat_dates(path: str = "data/csat_dates.csv") -> pd.DataFrame:
     csat = pd.read_csv(path)
     csat["exam_date"] = pd.to_datetime(csat["exam_date"], errors="coerce")
     return csat.dropna(subset=["exam_date"]).sort_values("exam_date")
@@ -241,7 +241,7 @@ with st.sidebar:
     metric = st.selectbox("지표 선택", ["평균기온(℃)", "최저기온(℃)", "최고기온(℃)"])
 
 # NOTE: default_path는 여러분 프로젝트의 기본 탑재 CSV 경로로 맞추세요.
-DEFAULT_DATA_PATH = "ta_20260122174530(2).csv"
+DEFAULT_DATA_PATH = "data/base_.csv"
 
 df = load_temperature_csv(uploaded_file=uploaded, default_path=DEFAULT_DATA_PATH)
 df = safe_metric_bounds_check(df)
